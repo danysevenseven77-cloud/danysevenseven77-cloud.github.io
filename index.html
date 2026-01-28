@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Daniil Avdusenko Portfolio</title>
+
+    <style>
+      body{
+        background-color: rgb(138, 47, 47);
+        font-family: 'Times New Roman', Times, serif;
+      }
+
+      .page-box{
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 25px;
+        margin-bottom: 40px;
+      }
+
+      .section{
+        margin-top: 40px;
+        padding-top: 15px;
+      }
+
+      .center{
+        font-size: 30px;
+        color: rgb(73, 73, 227);
+        text-align: center;
+      }
+
+      p{
+        margin: 10px 0;
+        padding: 15px;
+        color: black;
+        font-size: 20px;
+        font-family: cursive;
+      }
+
+      .img{
+        border: 5px solid rgb(17, 175, 227);
+        margin: 10px;
+      }
+
+      .link:hover{
+        font-size: 30px;
+        color: green;
+        text-decoration: none;
+      }
+
+      figcaption{
+        font-size: 20px;
+        font-style: italic;
+        color: blue;
+      }
+
+      table{
+        background-color: white;
+      }
+
+      ul { list-style-type: square; }
+      ol { list-style-type: upper-roman; }
+
+      .div{
+        background-color: rgb(0, 168, 224);
+        color: rgb(255, 255, 0);
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 10px 0;
+        padding: 10px;
+      }
+
+      #fun{
+        background-color: darkblue;
+        color: rgb(255, 255, 0);
+        border: 5px solid darkred;
+        padding: 10px;
+      }
+
+      hr{
+        border: 0;
+        height: 2px;
+        background: #333;
+        margin: 10px 0 20px 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container page-box">
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded mb-4">
+        <a style = "color: white; font-size: 20px;" class="nav-link" href="index.html">Daniil</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse bg-dark" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+
+            <li class="nav-item">
+              <a class="nav-link" href="personal_life.html">Personal Life</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="hobbies.html">Hobbies</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="travel.html">Traveling</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html#schedule">Schedule</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                Recipe Types
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="recipe1.html">HTML</a>
+                <a class="dropdown-item" href="recipe2.html">CSS</a>
+                <a class="dropdown-item" href="recipe3.html">Bootstrap</a>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+      <div class = "row">
+        <div class="jumbotron jumbotron-fluid bg-light">
+            <div class="container">
+                <h1 class="display-4"><b>A little about myself:</b></h1>
+                <div class = "row">
+                    <div class = "col-md-4">
+                        <img src = "media/Picture_of_me.png" alt = "Picture of me">
+                    </div>
+                    <div class = "col-md-8">
+                        <p class="lead">My name is Daniil Avdusenko. I'm 14 years old and I'm a freshman at <a class = "link" href = "https://lanetech.org/" target = "blank">Lane Tech College Prep High School.</a>
+                        I was born in Ukraine, and moved to United States in 2022. I do Taekwondo, and I enjoy learning about
+                        computer science. When I grow up, I want to become a Soft-Ware Engineer.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class = "row">
+        <div class = "col-md-4">
+          <div class="card" style="width: 18rem;">
+              <img src="family1.jpg" class="card-img-top" alt="Family">
+              <div class="card-body">
+                <h5 class="card-title"><b>Personal life</b></h5>
+                <a href="personal_life.html" class="btn btn-primary" target = "_blank">More Detailed Description of Myself</a>
+              </div>
+          </div>
+        </div>
+        <div class = "col-md-4">
+            <div class="card" style="width: 18rem;">
+              <img src="Hobbies.jpg" class="card-img-top" alt="Hobbies">
+              <div class="card-body">
+                <h5 class="card-title"><b>Hobbies</b></h5>
+                <a href="hobbies.html" class="btn btn-primary" target="_blank">Description of my hobbies</a>
+              </div>
+            </div>
+        </div>
+        <div class = "col-md-4">
+          <div class="card" style="width: 18rem;">
+            <img src="travel.jpg" class="card-img-top" alt="Traveling">
+            <div class="card-body">
+              <h5 class="card-title"><b>Traveling</b></h5>
+              <a href="travel.html" class="btn btn-primary" target="_blank">Countries I'd like to visit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+
+        <div class="table-responsive" id = "schedule">
+          <table class="table table-bordered" border="3">
+            <tr>
+              <td rowspan="4" colspan="2"><img class = "img-fluid" src="media/Picture_of_me.png" alt="Picture of me" width="180" height="220"></td>
+              <th colspan="3">Lane Tech H.S College Prep</th>
+            </tr>
+            <tr>
+              <th rowspan="3" colspan="2">3</th>
+              <td>Daniil Avdusenko</td>
+            </tr>
+            <tr>
+              <td>63711660</td>
+            </tr>
+            <tr>
+              <td>A951</td>
+            </tr>
+            <tr>
+              <td colspan="5">.</td>
+            </tr>
+            <tr>
+              <th>Period</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+              <th>Room #</th>
+              <th>Class Name</th>
+            </tr>
+            <tr><td>1</td><td>8:00</td><td>8:50</td><td>235</td><td>HS1 Web Development: 1</td></tr>
+            <tr><td>2</td><td>8:55</td><td>9:45</td><td>434</td><td>HS1 Biology</td></tr>
+            <tr><td>3</td><td>9:50</td><td>10:40</td><td>Cafeteria</td><td>Student Meal</td></tr>
+            <tr><td>4</td><td>10:45</td><td>11:35</td><td>228</td><td>HS1 World Studies</td></tr>
+            <tr><td>5</td><td>11:40</td><td>12:30</td><td>208</td><td>RS1 PE 1/Health</td></tr>
+            <tr><td>6</td><td>12:35</td><td>1:25</td><td>307</td><td>HS1 Adv Algebra w/Trig HH</td></tr>
+            <tr><td>7</td><td>1:30</td><td>2:20</td><td>344</td><td>HS1 French 1</td></tr>
+            <tr><td>8</td><td>2:25</td><td>3:15</td><td>257</td><td>HS1 English 1</td></tr>
+            <tr>
+              <td colspan="3">Division A951</td>
+              <td>199</td>
+              <td>O'Hagan Matthew</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  </body>
+</html>
