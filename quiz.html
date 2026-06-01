@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Home Page</title>
+    <style>
+        input{
+            accent-color: blue;
+        }
+    </style>
+  </head>
+  <body style = "background-color: rgb(178, 46, 46); color: white">
+   <div style = "background-color: #111;" class = "container">
+    <div class = "row">
+    <div class = "col-md-12">
+      
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="home.html">Combat Compass</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="styles.html">Styles</a></li>
+      <li class = "nav-item"><a class = "nav-link" href = "benefits.html">Benefits</a></li>
+      <li class="nav-item active"><a class="nav-link" href="quiz.html">Find Your Style</a></li>
+      <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-4">
+    <h1 style = "color: rgb(178, 46, 46)">Find the Best Martial Art for You</h1>
+    <p>Answer the questions below to get a recommendation.</p>
+
+    <form id="quizForm">
+        <label>What is your main goal?</label><br><br>
+            <input type = "radio" name = "goal" value="selfdefense">Self‑Defense<br>
+            <input type = "radio" name = "goal" value="fitness">Fitness<br>
+            <input type = "radio" name = "goal" value="competition">Competition<br>
+            <input type = "radio" name = "goal" value="discipline">Discipline<br><br><br>
+
+        <label>Do you prefer striking or grappling?</label><br><br>
+            <input type = "radio" name = "type" value = "striking">Striking<br>
+            <input type = "radio" name = "type" value = "grappling">Grappling<br>
+            <input type = "radio" name = "type" value = "either">Either<br>
+            
+
+        <button type="button" class="btn btn-primary" onclick="recommend()">Get Recommendation</button>
+    </form>
+
+    <div class="mt-4">
+        <h3 style = "color: rgb(178, 46, 46)">Your Recommended Martial Art:</h3>
+        <p id="result" class="font-weight-bold text-primary"></p>
+    </div>
+    <div id="gearSection" class="mt-4" style="display: none; background-color: #222; padding: 15px; border-radius: 10px;">
+    <h4 style="color: rgb(178, 46, 46)" id="gearQuestion"></h4>
+
+    <input type="radio" name="buyGear" value="yes" onclick="showGearOptions()"> Yes<br>
+    <input type="radio" name="buyGear" value="no" onclick="hideGearOptions()"> No<br><br>
+
+    <div id="gearOptions" style="display: none;">
+        <h5>Choose Your Gear:</h5>
+        <div id="gearList"></div>
+
+        <button type="button" class="btn btn-danger mt-3" onclick="calculateGearPrice()">
+            Calculate Gear Price
+        </button>
+
+        <p id="gearTotal" class="font-weight-bold mt-3" style="color: white;"></p>
+    </div>
+</div>
+</div>
+
+<script>
+let recommendedArt = "";
+
+let gearByArt = {
+    "Brazilian Jiu-Jitsu": [
+        { name: "BJJ Gi", price: 80 },
+        { name: "Rash Guard", price: 35 },
+        { name: "Mouthguard", price: 15 },
+        { name: "BJJ Belt", price: 20 }
+    ],
+
+    "Krav Maga": [
+        { name: "MMA Gloves", price: 40 },
+        { name: "Mouthguard", price: 15 },
+        { name: "Groin Guard", price: 25 },
+        { name: "Training Shirt", price: 20 }
+    ],
+
+    "Muay Thai": [
+        { name: "Boxing Gloves", price: 50 },
+        { name: "Shin Guards", price: 45 },
+        { name: "Mouthguard", price: 15 },
+        { name: "Hand Wraps", price: 10 }
+    ],
+
+    "Judo": [
+        { name: "Judo Gi", price: 75 },
+        { name: "Judo Belt", price: 15 },
+        { name: "Mouthguard", price: 15 },
+        { name: "Training Bag", price: 30 }
+    ],
+
+    "Taekwondo": [
+        { name: "Dobok Uniform", price: 60 },
+        { name: "Chest Protector", price: 50 },
+        { name: "Headgear", price: 40 },
+        { name: "Shin Guards", price: 30 }
+    ],
+
+    "Wrestling": [
+        { name: "Wrestling Shoes", price: 70 },
+        { name: "Headgear", price: 35 },
+        { name: "Singlet", price: 45 },
+        { name: "Knee Pads", price: 20 }
+    ],
+
+    "Karate": [
+        { name: "Karate Gi", price: 55 },
+        { name: "Karate Belt", price: 15 },
+        { name: "Sparring Gloves", price: 35 },
+        { name: "Mouthguard", price: 15 }
+    ],
+
+    "Aikido": [
+        { name: "Aikido Gi", price: 65 },
+        { name: "Aikido Belt", price: 15 },
+        { name: "Wooden Bokken", price: 30 },
+        { name: "Wooden Jo Staff", price: 35 }
+    ]
+};
+
+function recommend() {
+    let goalOptions = document.getElementsByName("goal");
+    let typeOptions = document.getElementsByName("type");
+
+    let goal = "";
+    let type = "";
+    let result = "";
+
+    for (let i = 0; i < goalOptions.length; i++) {
+        if (goalOptions[i].checked) {
+            goal = goalOptions[i].value;
+        }
+    }
+
+    for (let x = 0; x < typeOptions.length; x++) {
+        if (typeOptions[x].checked) {
+            type = typeOptions[x].value;
+        }
+    }
+
+    if (goal == "" || type == "") {
+        document.getElementById("result").innerText = "Please answer all questions first.";
+        return;
+    }
+
+    if (goal == "selfdefense") {
+        result = (type == "grappling") ? "Brazilian Jiu-Jitsu" : "Krav Maga";
+    } else if (goal == "fitness") {
+        result = (type == "striking") ? "Muay Thai" : "Judo";
+    } else if (goal == "competition") {
+        result = (type == "striking") ? "Taekwondo" : "Wrestling";
+    } else if (goal == "discipline") {
+        result = (type == "striking") ? "Karate" : "Aikido";
+    }
+
+    recommendedArt = result;
+
+    document.getElementById("result").innerText = result;
+
+    document.getElementById("gearSection").style.display = "block";
+    document.getElementById("gearQuestion").innerText =
+        "Do you want to buy gear for " + recommendedArt + "?";
+
+    document.getElementById("gearOptions").style.display = "none";
+    document.getElementById("gearTotal").innerText = "";
+
+    let buyGearOptions = document.getElementsByName("buyGear");
+    for (let i = 0; i < buyGearOptions.length; i++) {
+        buyGearOptions[i].checked = false;
+    }
+
+    document.getElementById("gearList").innerHTML = "";
+}
+
+function showGearOptions() {
+    document.getElementById("gearOptions").style.display = "block";
+
+    let gearList = document.getElementById("gearList");
+    gearList.innerHTML = "";
+
+    let gearItems = gearByArt[recommendedArt];
+
+    for (let i = 0; i < gearItems.length; i++) {
+        gearList.innerHTML +=
+            '<input type="checkbox" name="gear" value="' + gearItems[i].price + '"> ' +
+            gearItems[i].name + " - $" + gearItems[i].price + "<br>";
+    }
+}
+
+function hideGearOptions() {
+    document.getElementById("gearOptions").style.display = "none";
+    document.getElementById("gearTotal").innerText = "You chose not to buy gear.";
+}
+
+function calculateGearPrice() {
+    let gear = document.getElementsByName("gear");
+    let total = 0;
+
+    for (let i = 0; i < gear.length; i++) {
+        if (gear[i].checked) {
+            total += Number(gear[i].value);
+        }
+    }
+
+    let tax = total * 0.1025;
+let finalTotal = total + tax;
+
+document.getElementById("gearTotal").innerText =
+    "Subtotal for " + recommendedArt + ": $" + total.toFixed(2) +
+    "\nTax: $" + tax.toFixed(2) +
+    "\nFinal total: $" + finalTotal.toFixed(2);
+}
+</script>
+        </div>
+    </div>
+</div>
+  
+  </body>
+</html>
